@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest"
 import F1Api from "../src"
 
-const f1Api = new F1Api({ baseUrl: "https://f1api.dev/api" })
+const f1Api = new F1Api()
 
 describe("F1Api", () => {
   it("debería obtener datos correctamente", async () => {
