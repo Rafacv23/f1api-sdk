@@ -1,14 +1,10 @@
 import fetch from "isomorphic-unfetch"
 
-type Config = {
-  baseUrl?: string
-}
-
 export abstract class Base {
   private baseUrl: string
 
-  constructor(config: Config) {
-    this.baseUrl = config.baseUrl || "https://f1api.dev/api"
+  constructor() {
+    this.baseUrl = "https://f1api.dev/api"
   }
 
   protected async request<T>(
