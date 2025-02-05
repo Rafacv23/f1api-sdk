@@ -1,10 +1,11 @@
 import { describe, it, expect } from "vitest"
-import { F1Api } from "../src"
+import F1Api from "../src"
+
+const f1Api = new F1Api({ baseUrl: "https://f1api.dev/api" })
 
 describe("F1Api", () => {
   it("debería obtener datos correctamente", async () => {
-    const api = new F1Api()
-    const data = await api.getSeasons()
+    const data = await f1Api.getSeasons()
     expect(data).toEqual(
       expect.objectContaining({
         api: expect.any(String),
