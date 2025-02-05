@@ -1,16 +1,10 @@
-import { SeasonsResponse } from "../types/F1Api"
+import { Base } from "./base"
+import { Seasons } from "./seasons/seasons"
+import { applyMixins } from "./utils"
 
-export class F1Api {
-  private baseUrl: string
+class F1Api extends Base {}
+interface F1Api extends Seasons {}
 
-  constructor(baseUrl: string = "https://f1api.dev/api") {
-    this.baseUrl = baseUrl
-  }
+applyMixins(F1Api, [Seasons])
 
-  async getSeasons<T>(): Promise<SeasonsResponse[]> {
-    const response = await fetch(`${this.baseUrl}/seasons`)
-    if (!response.ok)
-      throw new Error(`Error ${response.status}: ${response.statusText}`)
-    return response.json()
-  }
-}
+export default F1Api
