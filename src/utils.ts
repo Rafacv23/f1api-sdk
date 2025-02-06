@@ -11,3 +11,16 @@ export function applyMixins(derivedCtor: any, baseCtors: any[]) {
     })
   })
 }
+
+export function buildQueryParams(limit: number, offset: number): string {
+  // Crear un objeto para los parámetros de consulta
+  const params: Record<string, string> = {}
+
+  // Agregar los parámetros solo si están definidos
+  if (limit !== undefined) params.limit = String(limit)
+  if (offset !== undefined) params.offset = String(offset)
+
+  const queryString = new URLSearchParams(params).toString()
+
+  return queryString
+}
