@@ -18,8 +18,23 @@ export class Circuits extends Base {
     return this.request(url)
   }
 
-  getCircuit(id: string): Promise<Circuit> {
+  getCircuit({ id }: { id: string }): Promise<Circuit> {
     const url = `/${resourceName}/${id}`
+
+    return this.request(url)
+  }
+
+  getCircuitsByYear({
+    year,
+    limit,
+    offset,
+  }: {
+    year: number
+    limit?: number
+    offset?: number
+  }): Promise<Circuit[]> {
+    const queryString = buildQueryParams(limit, offset)
+    const url = `/${year}/${resourceName}?${queryString}`
 
     return this.request(url)
   }
