@@ -16,7 +16,7 @@
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "publish": "pnpm build && pnpm publish --access public",
     "test": "vitest",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "npx tsup"
   },
   "keywords": [
     "f1",
