@@ -1,6 +1,10 @@
 import { Base } from "src/base"
 import { buildQueryParams } from "src/utils"
-import { Driver } from "./types"
+import {
+  DriverApiResponse,
+  DriversApiResponse,
+  DriversByYearWithResultsApiResponse,
+} from "./types"
 
 const resourceName = "drivers"
 
@@ -9,7 +13,7 @@ export class Drivers extends Base {
   getDrivers({
     limit,
     offset,
-  }: { limit?: number; offset?: number } = {}): Promise<Driver[]> {
+  }: { limit?: number; offset?: number } = {}): Promise<DriversApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${resourceName}?${queryString}`
 
@@ -25,7 +29,7 @@ export class Drivers extends Base {
     year: number
     limit?: number
     offset?: number
-  }): Promise<Driver[]> {
+  }): Promise<DriversApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${resourceName}?${queryString}`
 
@@ -33,7 +37,7 @@ export class Drivers extends Base {
   }
 
   // returns a specific f1 driver based on his id
-  getDriver({ id }: { id: string }): Promise<Driver> {
+  getDriver({ id }: { id: string }): Promise<DriverApiResponse> {
     const url = `/${resourceName}/${id}`
 
     return this.request(url)
@@ -43,7 +47,7 @@ export class Drivers extends Base {
   getCurrentDrivers({
     limit,
     offset,
-  }: { limit?: number; offset?: number } = {}): Promise<Driver[]> {
+  }: { limit?: number; offset?: number } = {}): Promise<DriversApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/${resourceName}?${queryString}`
 
@@ -59,7 +63,7 @@ export class Drivers extends Base {
     id: string
     limit?: number
     offset?: number
-  }): Promise<Driver> {
+  }): Promise<DriversByYearWithResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/${resourceName}/${id}?${queryString}`
 
@@ -77,7 +81,7 @@ export class Drivers extends Base {
     id: string
     limit?: number
     offset?: number
-  }): Promise<Driver> {
+  }): Promise<DriversByYearWithResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${resourceName}/${id}?${queryString}`
 

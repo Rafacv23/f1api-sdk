@@ -1,4 +1,6 @@
-export interface Circuit {
+import { BaseApiResponse } from "types/F1Api"
+
+interface Circuit {
   circuitId: string
   circuitName: string
   country: string
@@ -11,4 +13,11 @@ export interface Circuit {
   fastestLapTeamId: string
   fastestLapYear: number
   url: string
+}
+
+export interface CircuitApiResponse extends BaseApiResponse {
+  circuit: Circuit[]
+}
+export interface CircuitsApiResponse extends BaseApiResponse {
+  circuits: Circuit[]
 }

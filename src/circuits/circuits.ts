@@ -1,6 +1,6 @@
 import { Base } from "../base"
 import { buildQueryParams } from "../utils"
-import { Circuit } from "./types"
+import { CircuitApiResponse, CircuitsApiResponse } from "./types"
 
 const resourceName = "circuits"
 
@@ -11,14 +11,14 @@ export class Circuits extends Base {
   }: {
     limit?: number
     offset?: number
-  } = {}): Promise<Circuit[]> {
+  } = {}): Promise<CircuitsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${resourceName}?${queryString}`
 
     return this.request(url)
   }
 
-  getCircuit({ id }: { id: string }): Promise<Circuit> {
+  getCircuit({ id }: { id: string }): Promise<CircuitApiResponse> {
     const url = `/${resourceName}/${id}`
 
     return this.request(url)
@@ -32,7 +32,7 @@ export class Circuits extends Base {
     year: number
     limit?: number
     offset?: number
-  }): Promise<Circuit[]> {
+  }): Promise<CircuitsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${resourceName}?${queryString}`
 

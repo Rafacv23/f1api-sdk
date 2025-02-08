@@ -11,4 +11,23 @@ interface F1Api extends Seasons, Circuits, Standings, Drivers, Teams {}
 
 applyMixins(F1Api, [Seasons, Circuits, Standings, Drivers, Teams])
 
+// export all the classes with the methods
 export { F1Api, Seasons, Circuits, Standings, Drivers, Teams }
+
+// export all the apiResponses types
+export type { SeasonsApiResponse } from "./seasons/types"
+export type {
+  DriverStandingsApiResponse,
+  ConstructorStandingsApiResponse,
+} from "./standings/types"
+export type { CircuitApiResponse, CircuitsApiResponse } from "./circuits/types"
+export type {
+  DriverApiResponse,
+  DriversApiResponse,
+  DriversByYearWithResultsApiResponse,
+} from "./drivers/types"
+export type {
+  TeamApiResponse,
+  TeamsApiResponse,
+  TeamWithDriversApiResponse,
+} from "./teams/types"
