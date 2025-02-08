@@ -11,4 +11,4 @@ interface F1Api extends Seasons, Circuits, Standings, Drivers, Teams {}
 
 applyMixins(F1Api, [Seasons, Circuits, Standings, Drivers, Teams])
 
-export default F1Api
+export { F1Api, Seasons, Circuits, Standings, Drivers, Teams }
