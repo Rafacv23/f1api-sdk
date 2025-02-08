@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import F1Api from "../src"
+import { F1Api } from "../src"
 
 const f1Api = new F1Api()
 
@@ -34,7 +34,7 @@ describe("Seasons endpoints", () => {
         url: expect.any(String),
         limit: 1,
         offset: 1,
-        total: expect.any(Number),
+        total: 1,
         championships: expect.arrayContaining([
           expect.objectContaining({
             championshipId: expect.any(String),
