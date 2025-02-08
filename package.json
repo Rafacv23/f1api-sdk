@@ -12,7 +12,7 @@
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "publish": "pnpm build && pnpm publish --access public",
     "test": "vitest",
-    "prepublishOnly": "npx tsup"
+    "prepublishOnly": "pnpm build"
   },
   "keywords": [
     "f1",
