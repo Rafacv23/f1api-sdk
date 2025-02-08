@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest"
-import F1Api from "../src"
+import { F1Api } from "../src"
 
 const f1Api = new F1Api()
 
