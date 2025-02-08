@@ -1,6 +1,6 @@
 {
   "name": "@f1api/sdk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An SDK for accessing the https://f1api.dev API.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -14,7 +14,6 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "publish": "pnpm build && pnpm publish --access public",
     "test": "vitest",
     "prepublishOnly": "npx tsup"
   },
