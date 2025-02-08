@@ -1,17 +1,26 @@
 {
-  "name": "f1api-sdk",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@f1api/sdk",
+  "version": "0.0.1",
+  "description": "An SDK for accessing the https://f1api.dev API.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "test": "vitest"
+    "test": "vitest",
+    "prepublishOnly": "npx tsup"
   },
-  "keywords": [],
+  "keywords": [
+    "f1",
+    "formula 1",
+    "formula1",
+    "f1api",
+    "sdk",
+    "open source",
+    "free"
+  ],
   "author": "rafacv23",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0",
   "devDependencies": {
     "@types/node": "^22.13.1",
