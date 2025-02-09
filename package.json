@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
-    "publish": "pnpm build && pnpm publish --access public",
+    "publish": "pnpm publish --access public",
     "test": "vitest",
     "prepublishOnly": "tsup src/index.ts --format esm,cjs --dts"
   },
