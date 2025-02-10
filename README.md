@@ -1,12 +1,12 @@
 # F1 API SDK
 
-This is a simple SDK created to help developers to use [f1api.dev](https://f1api.com/) api in their projects.
+This is a simple SDK created to help developers to use [f1api.dev](https://f1api.com/) api in their projects. Compatible with ES6 and CommonJS.
 
 F1 API is a free and open source API that provides data about Formula 1 races, drivers, teams, and circuits.
 
 ## Installation
 
-You can use npm, pnpm, yarn or bun to install this package.
+You can use npm, pnpm, yarn or bun to install this package. [npm package](https://www.npmjs.com/package/@f1api/sdk)
 
 ```bash
 npm install @f1api/sdk
