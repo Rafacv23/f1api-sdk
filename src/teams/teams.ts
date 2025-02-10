@@ -1,6 +1,10 @@
 import { Base } from "src/base"
 import { buildQueryParams } from "src/utils"
-import { Team } from "./types"
+import {
+  TeamApiResponse,
+  TeamsApiResponse,
+  TeamWithDriversApiResponse,
+} from "./types"
 
 const resourceName = "teams"
 
@@ -9,7 +13,7 @@ export class Teams extends Base {
   getTeams({
     limit,
     offset,
-  }: { limit?: number; offset?: number } = {}): Promise<Team[]> {
+  }: { limit?: number; offset?: number } = {}): Promise<TeamsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${resourceName}?${queryString}`
 
@@ -17,7 +21,7 @@ export class Teams extends Base {
   }
 
   //returns a f1 team based on his id
-  getTeam({ id }: { id: string }): Promise<Team> {
+  getTeam({ id }: { id: string }): Promise<TeamApiResponse> {
     const url = `/${resourceName}/${id}`
 
     return this.request(url)
@@ -32,7 +36,7 @@ export class Teams extends Base {
     year: number
     limit?: number
     offset?: number
-  }): Promise<Team[]> {
+  }): Promise<TeamsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${resourceName}?${queryString}`
 
@@ -43,7 +47,7 @@ export class Teams extends Base {
   getCurrentTeams({
     limit,
     offset,
-  }: { limit?: number; offset?: number } = {}): Promise<Team[]> {
+  }: { limit?: number; offset?: number } = {}): Promise<TeamsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/${resourceName}?${queryString}`
 
@@ -51,14 +55,20 @@ export class Teams extends Base {
   }
 
   // returns a team based on a year and his id
-  getTeamByYear({ year, id }: { year: number; id: string }): Promise<Team> {
+  getTeamByYear({
+    year,
+    id,
+  }: {
+    year: number
+    id: string
+  }): Promise<TeamApiResponse> {
     const url = `/${year}/${resourceName}/${id}`
 
     return this.request(url)
   }
 
   // returns a team based on the current year and his id
-  getCurrentTeam({ id }: { id: string }): Promise<Team> {
+  getCurrentTeam({ id }: { id: string }): Promise<TeamApiResponse> {
     const url = `/current/${resourceName}/${id}`
 
     return this.request(url)
@@ -75,7 +85,7 @@ export class Teams extends Base {
     id: string
     limit?: number
     offset?: number
-  }): Promise<Team> {
+  }): Promise<TeamWithDriversApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${resourceName}/${id}/drivers?${queryString}`
 
@@ -91,7 +101,7 @@ export class Teams extends Base {
     id: string
     limit?: number
     offset?: number
-  }): Promise<Team> {
+  }): Promise<TeamWithDriversApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/${resourceName}/${id}/drivers?${queryString}`
 

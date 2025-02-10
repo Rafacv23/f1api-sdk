@@ -1,6 +1,9 @@
 import { Base } from "src/base"
 import { buildQueryParams } from "src/utils"
-import { ConstructorStandings, DriverStandings } from "./types"
+import {
+  ConstructorStandingsApiResponse,
+  DriverStandingsApiResponse,
+} from "./types"
 
 const driverStandings = "drivers-championship"
 const constructorStandings = "constructors-championship"
@@ -14,7 +17,7 @@ export class Standings extends Base {
     year: number
     limit?: number
     offset?: number
-  }): Promise<DriverStandings[]> {
+  }): Promise<DriverStandingsApiResponse> {
     const queryParams = buildQueryParams(limit, offset)
 
     const url = `/${year}/${driverStandings}?${queryParams}`
@@ -25,7 +28,10 @@ export class Standings extends Base {
   getCurrentDriverStandings({
     limit,
     offset,
-  }: { limit?: number; offset?: number } = {}): Promise<DriverStandings[]> {
+  }: {
+    limit?: number
+    offset?: number
+  } = {}): Promise<DriverStandingsApiResponse> {
     const queryParams = buildQueryParams(limit, offset)
 
     const url = `/current/${driverStandings}?${queryParams}`
@@ -41,7 +47,7 @@ export class Standings extends Base {
     year: number
     limit?: number
     offset?: number
-  }): Promise<ConstructorStandings[]> {
+  }): Promise<ConstructorStandingsApiResponse> {
     const queryParams = buildQueryParams(limit, offset)
 
     const url = `/${year}/${constructorStandings}?${queryParams}`
@@ -52,9 +58,10 @@ export class Standings extends Base {
   getCurrentConstructorStandings({
     limit,
     offset,
-  }: { limit?: number; offset?: number } = {}): Promise<
-    ConstructorStandings[]
-  > {
+  }: {
+    limit?: number
+    offset?: number
+  } = {}): Promise<ConstructorStandingsApiResponse> {
     const queryParams = buildQueryParams(limit, offset)
 
     const url = `/current/${constructorStandings}?${queryParams}`
