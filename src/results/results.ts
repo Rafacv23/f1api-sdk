@@ -1,5 +1,14 @@
 import { Base } from "src/base"
 import { buildQueryParams } from "src/utils"
+import {
+  Fp1ResultsApiResponse,
+  Fp2ResultsApiResponse,
+  Fp3ResultsApiResponse,
+  QualyResultsApiResponse,
+  SprintQualyResultsApiResponse,
+  SprintRaceResultsApiResponse,
+  RaceResultsApiResponse,
+} from "./types"
 
 export class Results extends Base {
   //retrieves fp1 results of a race, based on the year and round
@@ -13,7 +22,7 @@ export class Results extends Base {
     round: number
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<Fp1ResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${round}/fp1?${queryString}`
 
@@ -27,7 +36,7 @@ export class Results extends Base {
   }: {
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<Fp1ResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/last/fp1?${queryString}`
 
@@ -45,7 +54,7 @@ export class Results extends Base {
     round: number
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<Fp2ResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${round}/fp2?${queryString}`
 
@@ -59,7 +68,7 @@ export class Results extends Base {
   }: {
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<Fp2ResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/last/fp2?${queryString}`
 
@@ -77,7 +86,7 @@ export class Results extends Base {
     round: number
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<Fp3ResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${round}/fp3?${queryString}`
 
@@ -91,7 +100,7 @@ export class Results extends Base {
   }: {
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<Fp3ResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/last/fp3?${queryString}`
 
@@ -109,7 +118,7 @@ export class Results extends Base {
     round: number
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<QualyResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${round}/qualy?${queryString}`
 
@@ -123,7 +132,7 @@ export class Results extends Base {
   }: {
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<QualyResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/last/qualy?${queryString}`
 
@@ -141,7 +150,7 @@ export class Results extends Base {
     round: number
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<RaceResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${round}/race?${queryString}`
 
@@ -155,7 +164,7 @@ export class Results extends Base {
   }: {
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<RaceResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/last/race?${queryString}`
 
@@ -173,7 +182,7 @@ export class Results extends Base {
     round: number
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<SprintRaceResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${round}/sprint/race?${queryString}`
 
@@ -187,7 +196,7 @@ export class Results extends Base {
   }: {
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<SprintRaceResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/last/sprint/race?${queryString}`
 
@@ -205,7 +214,7 @@ export class Results extends Base {
     round: number
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<SprintQualyResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/${year}/${round}/sprint/qualy?${queryString}`
 
@@ -219,7 +228,7 @@ export class Results extends Base {
   }: {
     limit?: number
     offset?: number
-  }): Promise<any> {
+  }): Promise<SprintQualyResultsApiResponse> {
     const queryString = buildQueryParams(limit, offset)
     const url = `/current/last/sprint/qualy?${queryString}`
 
