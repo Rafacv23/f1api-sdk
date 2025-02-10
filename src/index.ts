@@ -2,18 +2,34 @@ import { Base } from "./base"
 import { Circuits } from "./circuits/circuits"
 import { Drivers } from "./drivers/drivers"
 import { Races } from "./races/races"
+import { Results } from "./results/results"
 import { Seasons } from "./seasons/seasons"
 import { Standings } from "./standings/standings"
 import { Teams } from "./teams/teams"
 import { applyMixins } from "./utils"
 
 class F1Api extends Base {}
-interface F1Api extends Seasons, Circuits, Standings, Drivers, Teams, Races {}
+interface F1Api
+  extends Seasons,
+    Circuits,
+    Standings,
+    Drivers,
+    Teams,
+    Races,
+    Results {}
 
-applyMixins(F1Api, [Seasons, Circuits, Standings, Drivers, Teams, Races])
+applyMixins(F1Api, [
+  Seasons,
+  Circuits,
+  Standings,
+  Drivers,
+  Teams,
+  Races,
+  Results,
+])
 
 // export all the classes with the methods
-export { F1Api, Seasons, Circuits, Standings, Drivers, Teams, Races }
+export { F1Api, Seasons, Circuits, Standings, Drivers, Teams, Races, Results }
 
 // export all the apiResponses types
 export type { SeasonsApiResponse } from "./seasons/types"
