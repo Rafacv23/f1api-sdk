@@ -1,6 +1,6 @@
 {
   "name": "@f1api/sdk",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "An SDK for accessing the https://f1api.dev API.",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
