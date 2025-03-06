@@ -20,10 +20,15 @@ export abstract class Base {
       headers,
     }
 
-    const response = await fetch(url, config)
-    if (response.ok) {
-      return response.json()
+    try {
+      const response = await fetch(url, config)
+      if (response.ok) {
+        return response.json()
+      }
+      throw new Error(response.statusText)
+    } catch (error) {
+      console.log(error)
+      throw new Error(error)
     }
-    throw new Error(response.statusText)
   }
 }
