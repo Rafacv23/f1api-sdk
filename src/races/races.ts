@@ -3,7 +3,19 @@ import { buildQueryParams } from "../utils"
 import { RaceApiResponse, RacesApiResponse } from "./types"
 
 export class Races extends Base {
-  // returns all the races of a specific year
+  /**
+   * getRacesByYear - returns all the races of a specific year.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<RacesApiResponse>} Object array with the races and his info.
+   *
+   * @example
+   * ```ts
+   * const races = await getRacesByYear({ year: 2023, limit: 1, offset: 0 });
+   * ```
+   */
   getRacesByYear({
     year,
     limit,
@@ -19,7 +31,18 @@ export class Races extends Base {
     return this.request(url)
   }
 
-  // retruns all the races of the current year
+  /**
+   * getCurrentRaces - returns all the races of the current year.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<RacesApiResponse>} Object array with the races and his info.
+   *
+   * @example
+   * ```ts
+   * const races = await getCurrentRaces({ limit: 1, offset: 0 });
+   * ```
+   */
   getCurrentRaces({
     limit,
     offset,
@@ -30,7 +53,18 @@ export class Races extends Base {
     return this.request(url)
   }
 
-  // returns details of a specific race based on the year and the round
+  /**
+   * getRaceInfo - returns details of a specific race based on the year and the round.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [round] - Round of the race.
+   * @returns {Promise<RaceApiResponse>} Object with the race info.
+   *
+   * @example
+   * ```ts
+   * const race = await getRaceInfo({ year: 2023, round: 1 });
+   * ```
+   */
   getRaceInfo({
     year,
     round,
@@ -43,14 +77,32 @@ export class Races extends Base {
     return this.request(url)
   }
 
-  // returns info of the last race of the current season
+  /**
+   * getLastRace - returns info of the last race (completed) of the current year.
+   *
+   * @returns {Promise<RaceApiResponse>} Object array with the races and his info.
+   *
+   * @example
+   * ```ts
+   * const race = await getLastRace();
+   * ```
+   */
   getLastRace(): Promise<RaceApiResponse> {
     const url = `/current/last`
 
     return this.request(url)
   }
 
-  // returns info of the next race of the current season
+  /**
+   * getNextRace - returns info of the next race of the calendar of the current year.
+   *
+   * @returns {Promise<RaceApiResponse>} Object array with the races and his info.
+   *
+   * @example
+   * ```ts
+   * const race = await getNextRace();
+   * ```
+   */
   getNextRace(): Promise<RaceApiResponse> {
     const url = `/current/next`
 
