@@ -9,7 +9,18 @@ import {
 const resourceName = "teams"
 
 export class Teams extends Base {
-  // returns all the f1 teams in the database
+  /**
+   * getTeams - Returns all the f1 teams inside the database.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<TeamsApiResponse>} Object array with the teams.
+   *
+   * @example
+   * ```ts
+   * const teams = await getTeams({ limit: 1, offset: 0 });
+   * ```
+   */
   getTeams({
     limit,
     offset,
@@ -20,14 +31,36 @@ export class Teams extends Base {
     return this.request(url)
   }
 
-  //returns a f1 team based on his id
+  /**
+   * getTeam - Returns a f1 team based on his id.
+   *
+   * @param {string} [id] - The id of the team.
+   * @returns {Promise<TeamApiResponse>} Team object.
+   *
+   * @example
+   * ```ts
+   * const team = await getTeam({ id: "ferrari"});
+   * ```
+   */
   getTeam({ id }: { id: string }): Promise<TeamApiResponse> {
     const url = `/${resourceName}/${id}`
 
     return this.request(url)
   }
 
-  //returns all the f1 teams of a specific year
+  /**
+   * getTeamsByYear - Returns all the f1 teams of a specific year.
+   *
+   * @param {number} year - The year of the season.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<TeamsApiResponse>} Object array with the teams.
+   *
+   * @example
+   * ```ts
+   * const teams = await getTeamsByYear({ year: 2023, limit: 1, offset: 0 });
+   * ```
+   */
   getTeamsByYear({
     year,
     limit,
@@ -43,7 +76,18 @@ export class Teams extends Base {
     return this.request(url)
   }
 
-  //returns all the f1 teams of the curren year
+  /**
+   * getCurrentTeams - Returns all the f1 teams of the current year.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<TeamsApiResponse>} Object array with the teams.
+   *
+   * @example
+   * ```ts
+   * const teams = await getCurrentTeams({ limit: 1, offset: 0 });
+   * ```
+   */
   getCurrentTeams({
     limit,
     offset,
@@ -54,7 +98,18 @@ export class Teams extends Base {
     return this.request(url)
   }
 
-  // returns a team based on a year and his id
+  /**
+   * getTeamByYear - Returns a f1 team of a specific year based on his id.
+   *
+   * @param {number} [year] - Maximum number of results to return.
+   * @param {string} [id] - Team id ej: ferrari.
+   * @returns {Promise<TeamApiResponse>} Team object.
+   *
+   * @example
+   * ```ts
+   * const team = await getTeamByYear({ year: 2023, id: "ferrari"});
+   * ```
+   */
   getTeamByYear({
     year,
     id,
@@ -67,14 +122,37 @@ export class Teams extends Base {
     return this.request(url)
   }
 
-  // returns a team based on the current year and his id
+  /**
+   * getCurrentTeam - Returns a f1 team of the current year based on his id.
+   *
+   * @param {string} [id] - Team id ej: ferrari.
+   * @returns {Promise<TeamApiResponse>} Team object.
+   *
+   * @example
+   * ```ts
+   * const team = await getCurrentTeam({ id: "ferrari"});
+   * ```
+   */
   getCurrentTeam({ id }: { id: string }): Promise<TeamApiResponse> {
     const url = `/current/${resourceName}/${id}`
 
     return this.request(url)
   }
 
-  //returns a team with his drivers based on a year and the team id
+  /**
+   * getTeamByYear - Returns a f1 team with his drivers info of a specific year based on his id.
+   *
+   * @param {number} [year] - Maximum number of results to return.
+   * @param {string} [id] - Team id ej: ferrari.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<TeamWithDriversApiResponse>} Object array with the teams.
+   *
+   * @example
+   * ```ts
+   * const teams = await getTeamByYearWithDrivers({ year: 2023, id: "ferrari", limit: 1, offset: 0 });
+   * ```
+   */
   getTeamByYearWithDrivers({
     year,
     id,
@@ -92,7 +170,19 @@ export class Teams extends Base {
     return this.request(url)
   }
 
-  // returns a team with his drivers based on the current year and the team id
+  /**
+   * getCurrentTeamWithDrivers - Returns a team with his drivers based on the current year and the team id.
+   *
+   * @param {string} [id] - Team id ej: ferrari.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<TeamWithDriversApiResponse>} Object array with the teams.
+   *
+   * @example
+   * ```ts
+   * const teams = await getCurrentTeamWithDrivers({ id: "ferrari", limit: 1, offset: 0 });
+   * ```
+   */
   getCurrentTeamWithDrivers({
     id,
     limit,
