@@ -9,7 +9,18 @@ import {
 const resourceName = "drivers"
 
 export class Drivers extends Base {
-  // returns all the f1 drivers in the database
+  /**
+   * getDrivers - Returns all the f1 drivers in the database.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<DriversApiResponse>} Object array with the drivers and his info.
+   *
+   * @example
+   * ```ts
+   * const drivers = await getDrivers({ limit: 1, offset: 0 });
+   * ```
+   */
   getDrivers({
     limit,
     offset,
@@ -20,7 +31,19 @@ export class Drivers extends Base {
     return this.request(url)
   }
 
-  // returns all the f1 drivers of a specific year
+  /**
+   * getDriversByYear - Returns all the f1 drivers of a specific year.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<DriversApiResponse>} Object array with the drivers and his info.
+   *
+   * @example
+   * ```ts
+   * const drivers = await getDriversByYear({ year: 2023, limit: 1, offset: 0 });
+   * ```
+   */
   getDriversByYear({
     year,
     limit,
@@ -36,14 +59,35 @@ export class Drivers extends Base {
     return this.request(url)
   }
 
-  // returns a specific f1 driver based on his id
+  /**
+   * getDriver - Returns a specific f1 driver based on his id.
+   *
+   * @param {string} [id] - Driver id, ej: alonso.
+   * @returns {Promise<DriverApiResponse>} Object with the driver and his info.
+   *
+   * @example
+   * ```ts
+   * const driver = await getDriver({ id: "alonso" });
+   * ```
+   */
   getDriver({ id }: { id: string }): Promise<DriverApiResponse> {
     const url = `/${resourceName}/${id}`
 
     return this.request(url)
   }
 
-  // returns all the f1 drivers of the current year
+  /**
+   * getCurrentDrivers - Returns all the f1 drivers of the current year.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<DriversApiResponse>} Object array with the drivers and his info.
+   *
+   * @example
+   * ```ts
+   * const drivers = await getCurrentDrivers({ limit: 1, offset: 0 });
+   * ```
+   */
   getCurrentDrivers({
     limit,
     offset,
@@ -54,7 +98,19 @@ export class Drivers extends Base {
     return this.request(url)
   }
 
-  // returns a specific f1 driver of the current year based on his id, with his results
+  /**
+   * getDrivers - Returns a specific f1 driver of the current year based on his id, with his results.
+   *
+   * @param {string} [id] - Driver id, ej: alonso.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<DriversApiResponse>} Object array with the driver and his results info.
+   *
+   * @example
+   * ```ts
+   * const drivers = await getCurrentDriver({ id: "alonso", limit: 1, offset: 0 });
+   * ```
+   */
   getCurrentDriver({
     id,
     limit,
@@ -70,7 +126,20 @@ export class Drivers extends Base {
     return this.request(url)
   }
 
-  // returns a f1 driver based on a year and his id, with his results
+  /**
+   * getDrivers - Returns a specific f1 driver of the specific year based on his id, with his results.
+   *
+   * @param {string} [id] - Driver id, ej: alonso.
+   * @param {number} [year] - Year of the season.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<DriversApiResponse>} Object array with the driver and his results info.
+   *
+   * @example
+   * ```ts
+   * const drivers = await getDriverByYear({ id: "alonso", year: 2023, limit: 1, offset: 0 });
+   * ```
+   */
   getDriverByYear({
     year,
     id,
