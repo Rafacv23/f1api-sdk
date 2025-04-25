@@ -11,7 +11,20 @@ import {
 } from "./types"
 
 export class Results extends Base {
-  //retrieves fp1 results of a race, based on the year and round
+  /**
+   * getFp1Results - Returns fp1 results of a race, based on the year and round.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [round] - Round of the race.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<Fp1ResultsApiResponse>} Object array with the fp1 results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getFp1Results({ year: 2023, round: 1, limit: 1, offset: 0 });
+   * ```
+   */
   getFp1Results({
     year,
     round,
@@ -29,7 +42,18 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves fp1 results of the last race of the current season
+  /**
+   * getLastFp1Results - Returns fp1 results of the last race, of the current season.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<Fp1ResultsApiResponse>} Object array with the fp1 results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getLastFp1Results({ limit: 1, offset: 0 });
+   * ```
+   */
   getLastFp1Results({
     limit,
     offset,
@@ -43,7 +67,20 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves fp2 results of a race, based on the year and round
+  /**
+   * getFp2Results - Returns fp2 results of a race, based on the year and round.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [round] - Round of the race.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<Fp2ResultsApiResponse>} Object array with the fp2 results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getFp2Results({ year: 2023, round: 1, limit: 1, offset: 0 });
+   * ```
+   */
   getFp2Results({
     year,
     round,
@@ -61,7 +98,18 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves fp2 results of the last race of the current season
+  /**
+   * getLastFp2Results - Returns fp2 results of the last race, of the current season.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<Fp2ResultsApiResponse>} Object array with the fp2 results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getLastFp2Results({ limit: 1, offset: 0 });
+   * ```
+   */
   getLastFp2Results({
     limit,
     offset,
@@ -75,7 +123,20 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves fp3 results of a race, based on the year and round
+  /**
+   * getFp3Results - Returns fp3 results of a race, based on the year and round.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [round] - Round of the race.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<Fp3ResultsApiResponse>} Object array with the fp3 results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getFp3Results({ year: 2023, round: 1, limit: 1, offset: 0 });
+   * ```
+   */
   getFp3Results({
     year,
     round,
@@ -93,7 +154,18 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves fp3 results of the last race of the current season
+  /**
+   * getLastFp3Results - Returns fp3 results of a the last race, of the current season.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<Fp3ResultsApiResponse>} Object array with the fp3 results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getLastFp3Results({ limit: 1, offset: 0 });
+   * ```
+   */
   getLastFp3Results({
     limit,
     offset,
@@ -107,7 +179,20 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  // retrieves qualifying results of a race, based on the year and round
+  /**
+   * getQualyResults - Returns qualy results of a race, based on the year and round.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [round] - Round of the race.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<QualyResultsApiResponse>} Object array with the qualy results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getQualyResults({ year: 2023, round: 1, limit: 1, offset: 0 });
+   * ```
+   */
   getQualyResults({
     year,
     round,
@@ -125,7 +210,18 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves qualifying results of the last race of the current season
+  /**
+   * getLastQualyResults - Returns qualy results of the last race, of the current season.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<QualyResultsApiResponse>} Object array with the qualy results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getLastQualyResults({ limit: 1, offset: 0 });
+   * ```
+   */
   getLastQualyResults({
     limit,
     offset,
@@ -139,7 +235,20 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves race results of a race, based on the year and round
+  /**
+   * getRaceResults - Returns race results of a race, based on the year and round.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [round] - Round of the race.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<RaceResultsApiResponse>} Object array with the race results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getRaceResults({ year: 2023, round: 1, limit: 1, offset: 0 });
+   * ```
+   */
   getRaceResults({
     year,
     round,
@@ -157,7 +266,18 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves race results of the last race of the current season
+  /**
+   * getLastRaceResults - Returns race results of the last race, of the current season.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<RaceResultsApiResponse>} Object array with the race results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getLastRaceResults({ limit: 1, offset: 0 });
+   * ```
+   */
   getLastRaceResults({
     limit,
     offset,
@@ -171,7 +291,20 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves sprint results of a race, based on the year and round
+  /**
+   * getSprintRaceResults - Returns sprint results of a race, based on the year and round.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [round] - Round of the race.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<SprintRaceResultsApiResponse>} Object array with the sprint race results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getSprintRaceResults({ year: 2023, round: 1, limit: 1, offset: 0 });
+   * ```
+   */
   getSprintRaceResults({
     year,
     round,
@@ -189,7 +322,18 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves sprint results of the last race of the current season
+  /**
+   * getLastSprintRaceResults - Returns sprint results of the last race, of the current season.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<SprintRaceResultsApiResponse>} Object array with the sprint race results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getLastSprintRaceResults({ limit: 1, offset: 0 });
+   * ```
+   */
   getLastSprintRaceResults({
     limit,
     offset,
@@ -203,7 +347,20 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves sprint qualy results of a race, based on the year and round
+  /**
+   * getSprintQualyResults - Returns sprint qualy results of a race, based on the year and round.
+   *
+   * @param {number} [year] - Year of the season.
+   * @param {number} [round] - Round of the race.
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<SprintQualyResultsApiResponse>} Object array with the sprint qualy results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getSprintQualyResults({ year: 2023, round: 1, limit: 1, offset: 0 });
+   * ```
+   */
   getSprintQualyResults({
     year,
     round,
@@ -221,7 +378,18 @@ export class Results extends Base {
     return this.request(url)
   }
 
-  //retrieves sprint qualy results of the last race of the current season
+  /**
+   * getLastSprintQualyResults - Returns sprint qualy results of the last race, of the current season.
+   *
+   * @param {number} [limit] - Maximum number of results to return.
+   * @param {number} [offset] - Number of results to skip.
+   * @returns {Promise<SprintQualyResultsApiResponse>} Object array with the sprint qualy results of the race.
+   *
+   * @example
+   * ```ts
+   * const results = await getLastSprintQualyResults({ limit: 1, offset: 0 });
+   * ```
+   */
   getLastSprintQualyResults({
     limit,
     offset,
